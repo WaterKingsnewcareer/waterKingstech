@@ -1,6 +1,6 @@
 import { business } from "@/data/business";
 
-/** Exact pin or embed link if supplied; otherwise the shop's address (Circle Mall, Tip Toe Lane). */
+/** Exact pin or embed link if supplied; otherwise the shop's address (Rosewood Street, Tse Addo). */
 function embedSrc(): string {
   const { mapEmbedUrl, coordinates, mapQuery } = business.location;
   if (mapEmbedUrl) return mapEmbedUrl;

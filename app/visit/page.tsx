@@ -6,11 +6,12 @@ import { VisitShop } from "@/components/sections/VisitShop";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { business } from "@/data/business";
+import { inSentence } from "@/lib/format";
 
 export const metadata: Metadata = {
-  title: "Visit the shop — Circle Mall, Blue Gate, Gate 2 Exit",
+  title: "Visit the shop — Rosewood Street, Tse Addo, Accra",
   description:
-    "Find WaterKingsTech at Circle Mall, Tip Toe Lane, Accra — Blue Gate, Gate 2 Exit. Live map, directions, contact details and customer reviews.",
+    "Find WaterKingsTech on Rosewood Street, Tse Addo, Accra — beside Swift FX. Open 24/7. Live map, directions, contact details and customer reviews.",
   alternates: { canonical: "/visit" },
 };
 
@@ -23,7 +24,7 @@ export default function VisitPage() {
         <PortalBanner
           tone="white"
           title="Visit the shop"
-          lead={`Come and see devices in person, get a repair checked or ask about installment. We're at ${business.location.address} — use the ${business.location.landmark}.`}
+          lead={`Come and see devices in person, get a repair checked or ask about installment. We're on ${business.location.address}, ${inSentence(business.location.landmark)}.`}
           icon={MapPin}
           points={["Open 24/7", "Live Google map", "See & test devices", "Repairs on site"]}
         />

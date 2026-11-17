@@ -8,7 +8,7 @@ import { products } from "@/data/products";
 export const metadata: Metadata = {
   title: "Brand new phones & laptops — fresh in box",
   description:
-    "Factory-sealed smartphones, laptops and accessories at WaterKingsTech, Circle Mall, Accra. Free case + screen protector with phones, free bag with laptops.",
+    "Factory-sealed smartphones, laptops and accessories at WaterKingsTech, Tse Addo, Accra. Free case + screen protector with phones, free bag with laptops.",
   alternates: { canonical: "/brand-new" },
 };
 

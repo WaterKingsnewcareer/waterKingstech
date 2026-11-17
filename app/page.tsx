@@ -73,7 +73,7 @@ export default function HomePage() {
           <SectionHeader
             id="visit-title"
             title="Visit the shop"
-            description="See and test devices in person at Circle Mall — Blue Gate, Gate 2 Exit."
+            description="See and test devices in person on Rosewood Street, Tse Addo — beside Swift FX."
             action={{ href: "/visit", label: "Shop details" }}
           />
           <VisitShop className="mt-4" />

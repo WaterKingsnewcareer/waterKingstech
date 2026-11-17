@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: PageProps<"/shop/[category]">
   if (!category) return {};
   return {
     title: `${category.label} in Accra — UK used & brand new`,
-    description: `${category.description} Shop at WaterKingsTech, Circle Mall, Accra, and buy on WhatsApp.`,
+    description: `${category.description} Shop at WaterKingsTech, Tse Addo, Accra, and buy on WhatsApp.`,
     alternates: { canonical: `/shop/${category.slug}` },
   };
 }

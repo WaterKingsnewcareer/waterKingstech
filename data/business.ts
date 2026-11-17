@@ -20,19 +20,19 @@ export const business = {
   countryCode: "GH",
 
   location: {
-    /** Landmark from the flyers — the shop is at this exit. */
-    landmark: "Blue Gate, Gate 2 Exit",
-    /** Street address from the flyers. */
-    address: "Circle Mall, Tip Toe Lane" as string | null,
-    /** Circle Mall on Tip Toe Lane is in the Circle area of Accra. */
+    /** Landmark from the shop's Google Business Profile (November 2026). */
+    landmark: "Beside Swift FX",
+    /** Street address from the shop's Google Business Profile (November 2026). */
+    address: "Rosewood Street, Tse Addo" as string | null,
     city: "Accra" as string | null,
     region: "Greater Accra" as string | null,
     /**
      * Used for the embedded map and directions until an exact pin is supplied.
-     * Google Maps pins Tip Toe Lane with Circle Mall labelled beside it
-     * ("Circle Mall, Tip Toe Lane…" itself doesn't resolve to a pin).
+     * The shop's own Google listing isn't public in Maps yet, so this points
+     * to Rosewood Street in Tse Addo (this query is the one Maps pins as the
+     * street). Set `mapsUrl` / `coordinates` once the listing is public.
      */
-    mapQuery: "Tip Toe Lane, Accra, Ghana",
+    mapQuery: "Rosewood St, Accra, Ghana",
     /** Exact shop coordinates (Google Maps → right-click the pin). Overrides mapQuery. */
     coordinates: null as { lat: number; lng: number } | null,
     /**

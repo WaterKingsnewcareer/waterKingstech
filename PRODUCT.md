@@ -20,7 +20,7 @@ A marketplace-style shop window for WaterKingsTech. It takes a visitor from sear
 
 ## Positioning
 
-A real shop at Circle Mall, Tip Toe Lane (Blue Gate, Gate 2 Exit), Accra. It sells both tested UK-used devices (3-month warranty) and factory-sealed brand-new devices, repairs phones and laptops on site (including SSD / HDD and RAM upgrades), is open 24/7, offers installment plans on phones, MacBooks and iPads and pays referral commissions. It also bundles free gifts: a free laptop bag with a laptop, and a free case and screen protector with a phone.
+A real shop on Rosewood Street, Tse Addo (beside Swift FX), Accra. It sells both tested UK-used devices (3-month warranty) and factory-sealed brand-new devices, repairs phones and laptops on site (including SSD / HDD and RAM upgrades), is open 24/7, offers installment plans on phones, MacBooks and iPads and pays referral commissions. It also bundles free gifts: a free laptop bag with a laptop, and a free case and screen protector with a phone.
 
 ## Operating Context
 
@@ -51,6 +51,7 @@ A real shop at Circle Mall, Tip Toe Lane (Blue Gate, Gate 2 Exit), Accra. It sel
 ## Evidence on Hand
 
 - Owner flyers (2026-09-23): phone/WhatsApp numbers, address, landmark, referral and installment commission tables.
+- Google Business Profile (2026-11-17): the shop moved to Rosewood Street, Tse Addo, beside Swift FX, Accra (replaces the flyers' Circle Mall address). Profile also lists 054 260 9094 and open 24 hours.
 - Owner (2026-11-12): open 24/7. Installment covers every phone (UK used and brand new), MacBooks and iPads only; other laptops and accessories are paid in full. Repairs include SSD / HDD and RAM upgrades.
 - Logo file (2026-11-09), email address, 3-month UK-used warranty, promo headliners and the B2B/B2C scope.
 - Hero video and poster in `public/videos`.

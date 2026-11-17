@@ -1,6 +1,6 @@
 # WaterKingsTech Website
 
-The shop website for **WaterKingsTech**, a phone, laptop, accessories and repairs shop at Circle Mall, Tip Toe Lane (Blue Gate, Gate 2 Exit), Accra.
+The shop website for **WaterKingsTech**, a phone, laptop, accessories and repairs shop on Rosewood Street, Tse Addo (beside Swift FX), Accra.
 
 It works like a marketplace (modelled on Jiji): a blue search band, a category rail with live counts, listing pages with filters, and a page for every product. It takes visitors from **search → product or service → WhatsApp, call, email or directions**. There is no cart, checkout or accounts: every "Buy" button opens WhatsApp with the message already written.
 
@@ -82,7 +82,7 @@ The client's original file is `public/brand/logo-original.png`. Its "TECH" and t
 - [ ] Real product list with prices and photos, and which products carry which deal tag. The current catalog is **sample inventory** with representative Unsplash photos and example deal tags.
 - [ ] Repair turnaround times (screens, batteries, SSD / HDD, RAM, board repair, diagnostics)
 - [x] Opening hours (open 24/7)
-- [ ] Exact Google Maps pin or listing link. The map currently points to Tip Toe Lane, next to Circle Mall.
+- [ ] Exact Google Maps pin or listing link (`mapsUrl` / `coordinates` in `data/business.ts`). The map currently points to Rosewood Street, Tse Addo.
 - [ ] Shop photos: front and inside
 - [ ] Genuine customer reviews, shared with permission. Mark each one verified only after matching it to a WhatsApp order, shop receipt or Google review; the "Leave a review" button asks customers for exactly that information
 - [ ] Installment plan terms: guidelines, eligibility, required documents, payment conditions (which devices qualify is done: all phones, MacBooks, iPads)

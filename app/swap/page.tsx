@@ -10,13 +10,13 @@ import { swap } from "@/data/offers";
 export const metadata: Metadata = {
   title: "Swap your phone or laptop — trade in & upgrade",
   description:
-    "Swap your old phone or laptop at WaterKingsTech, Circle Mall, Accra. Tell us what you have and what you want, and we'll tell you what to add.",
+    "Swap your old phone or laptop at WaterKingsTech, Tse Addo, Accra. Tell us what you have and what you want, and we'll tell you what to add.",
   alternates: { canonical: "/swap" },
 };
 
 const steps = [
   { title: "Tell us what you have", body: "Your device, its condition and what you'd like in exchange." },
-  { title: "Bring it to the shop", body: "We check your device at Circle Mall — Blue Gate, Gate 2 Exit." },
+  { title: "Bring it to the shop", body: "We check your device at the shop on Rosewood Street, Tse Addo." },
   { title: "Get its swap value", body: "We tell you what it's worth towards your next device." },
   { title: "Add the difference", body: "Pay the balance — negotiable — and leave with your upgrade." },
 ];

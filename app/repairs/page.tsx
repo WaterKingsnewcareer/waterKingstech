@@ -12,13 +12,13 @@ import { callHref, whatsappHref, whatsappMessages } from "@/lib/contact-links";
 export const metadata: Metadata = {
   title: "Phone & laptop repairs in Accra",
   description:
-    "Screen replacement, battery swap, SSD / HDD and RAM upgrades, board repair and diagnostics for phones and laptops at WaterKingsTech, Circle Mall, Accra.",
+    "Screen replacement, battery swap, SSD / HDD and RAM upgrades, board repair and diagnostics for phones and laptops at WaterKingsTech, Tse Addo, Accra.",
   alternates: { canonical: "/repairs" },
 };
 
 const steps = [
   { title: "Tell us the problem", body: "Describe what's wrong on WhatsApp, or call the shop." },
-  { title: "Bring your device", body: "Come to Circle Mall — Blue Gate, Gate 2 Exit." },
+  { title: "Bring your device", body: "Come to Rosewood Street, Tse Addo — beside Swift FX." },
   { title: "Get the diagnosis", body: "We find the fault and advise you on the next step." },
   { title: "Collect it fixed", body: "Pick up your device once the repair is done." },
 ];

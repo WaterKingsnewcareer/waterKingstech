@@ -6,7 +6,7 @@ import { products } from "@/data/products";
 export const metadata: Metadata = {
   title: "Shop phones, laptops & accessories",
   description:
-    "Browse UK used and brand new smartphones, laptops, MacBooks and accessories at WaterKingsTech, Circle Mall, Accra. Buy on WhatsApp.",
+    "Browse UK used and brand new smartphones, laptops, MacBooks and accessories at WaterKingsTech, Tse Addo, Accra. Buy on WhatsApp.",
   alternates: { canonical: "/shop" },
 };
 

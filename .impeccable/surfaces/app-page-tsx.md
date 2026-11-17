@@ -17,7 +17,7 @@ THESIS: WaterKingsTech works like Jiji: a coloured search band, a category rail 
 
 OWN-WORLD: Tidewater palette from the logo. Royal blue #0c6de2 to cyan #25c3f4 owns the search band and links. The ground is ice blue #eef4fa, cards are white with a 1px #d9e5f1 border and 12px radius, and prices are bold royal blue. Orange #ff7a00 is the one counter-accent (Hot Deals, the phone bundle). Deal tags are red SAVE, orange HOT DEAL and violet WEEKEND FLASH SALE. Gift chips are green and Buy buttons WhatsApp green. Montserrat ExtraBold, echoing the logo's wordmark, is the display face; Geist is the UI face.
 
-STORY: Visitors understand within seconds that this is a real Circle Mall shop with deals and warranty. They search or tap a category, compare, then tap Buy on WhatsApp; corporate buyers request a quote.
+STORY: Visitors understand within seconds that this is a real Tse Addo shop with deals and warranty. They search or tap a category, compare, then tap Buy on WhatsApp; corporate buyers request a quote.
 
 FIRST VIEWPORT: A navy ticker strip with the bundle headliners. A white header holding the logo lockup, Retail | Corporate and an orange Hot Deals button. A blue band with "What are you looking for?", a category select plus a 56px search and popular chips, ending in the logo's wave curve (the signature move). Below it, the category rail and the two bundle banners begin above the fold at 1440x900.
 

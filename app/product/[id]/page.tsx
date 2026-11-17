@@ -20,6 +20,7 @@ import { conditionLabel, giftByCategory, isNegotiable, isSwappable, warrantyFor,
 import { catalogIsSample, getProduct, products } from "@/data/products";
 import { isInstallmentEligible } from "@/data/programs";
 import { callHref, directionsHref, emailHref, productMessage, productTitle, whatsappHref, whatsappMessages } from "@/lib/contact-links";
+import { inSentence } from "@/lib/format";
 
 export const dynamicParams = false;
 
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: PageProps<"/product/[id]">): 
   const title = `${productTitle(product)} (${conditionLabel[product.condition]})`;
   return {
     title,
-    description: `${title} at ${business.name}, Circle Mall, Accra. ${product.specs.join(", ")}. Buy on WhatsApp.`,
+    description: `${title} at ${business.name}, Tse Addo, Accra. ${product.specs.join(", ")}. Buy on WhatsApp.`,
     alternates: { canonical: `/product/${product.id}` },
     openGraph: { images: [{ url: product.image.src, alt: product.image.alt }] },
   };
@@ -184,9 +185,9 @@ export default async function ProductPage({ params }: PageProps<"/product/[id]">
                 <span>
                   See and test it at the shop —{" "}
                   <a href={directionsHref} target="_blank" rel="noopener noreferrer" className="font-semibold text-royal-700 hover:underline">
-                    {business.location.landmark}
+                    {business.location.address}
                   </a>
-                  .
+                  , {inSentence(business.location.landmark)}.
                 </span>
               </li>
               <li className="flex gap-2.5">

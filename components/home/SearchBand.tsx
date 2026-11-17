@@ -31,7 +31,7 @@ export function SearchBand() {
           What are you looking for?
         </h1>
         <p className="rise-in mx-auto mt-2 max-w-xl text-balance text-[0.95rem] text-white/85 [--i:1] sm:text-base">
-          UK used &amp; brand new phones, laptops and accessories — plus repairs, at Circle Mall, Accra.
+          UK used &amp; brand new phones, laptops and accessories — plus repairs, in Tse Addo, Accra.
         </p>
 
         <div className="rise-in mx-auto mt-6 max-w-3xl [--i:2] sm:mt-8">

@@ -78,7 +78,7 @@ export const tickerMessages = [
   "Phones, MacBooks & iPads on installment",
   "Open 24/7 — every day",
   "Tap & Earn: share an item, earn GH₵ 50 – GH₵ 400",
-  "Visit us: Circle Mall, Blue Gate — Gate 2 Exit",
+  "Visit us: Rosewood Street, Tse Addo — beside Swift FX",
 ];
 
 export const conditionLabel: Record<Condition, string> = {

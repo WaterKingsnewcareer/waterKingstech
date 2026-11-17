@@ -7,7 +7,7 @@ import { products } from "@/data/products";
 export const metadata: Metadata = {
   title: "Hot deals — save up to 40% on laptops",
   description:
-    "WaterKingsTech deals: buy a laptop and save up to 40% plus a free laptop bag, or buy a phone and get a free case and screen protector. Circle Mall, Accra.",
+    "WaterKingsTech deals: buy a laptop and save up to 40% plus a free laptop bag, or buy a phone and get a free case and screen protector. Tse Addo, Accra.",
   alternates: { canonical: "/deals" },
 };
 

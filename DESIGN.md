@@ -1,6 +1,6 @@
 ---
 name: WaterKingsTech
-description: A Jiji-style marketplace shop window for a real Circle Mall, Accra device and repair shop, in the blues of its logo.
+description: A Jiji-style marketplace shop window for a real Tse Addo, Accra device and repair shop, in the blues of its logo.
 colors:
   royal-50: "#eef6ff"
   royal-100: "#dcecff"

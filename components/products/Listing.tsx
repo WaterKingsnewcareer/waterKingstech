@@ -120,7 +120,7 @@ function ListingView({ title, products, fixed = {}, intro, titleAs: Title = "h1"
             <Title className="font-display text-2xl font-extrabold tracking-[-0.02em] text-ink sm:text-[1.75rem]">{title}</Title>
             <p aria-live="polite" className="mt-1 text-sm text-ink-muted">
               <span className="font-semibold text-ink">{itemCount(results.length)}</span>
-              {filters.q ? <> for “{filters.q}”</> : null} · Circle Mall, Accra
+              {filters.q ? <> for “{filters.q}”</> : null} · Tse Addo, Accra
             </p>
           </div>
           <div className="flex items-center gap-2">

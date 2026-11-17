@@ -9,7 +9,7 @@ import { products } from "@/data/products";
 export const metadata: Metadata = {
   title: "UK Used phones & laptops with warranty",
   description:
-    "Tested, high-grade UK used iPhones, Samsung phones, laptops and MacBooks with a 3-month warranty — at WaterKingsTech, Circle Mall, Accra. Phones and MacBooks on installment.",
+    "Tested, high-grade UK used iPhones, Samsung phones, laptops and MacBooks with a 3-month warranty — at WaterKingsTech, Tse Addo, Accra. Phones and MacBooks on installment.",
   alternates: { canonical: "/uk-used" },
 };
 

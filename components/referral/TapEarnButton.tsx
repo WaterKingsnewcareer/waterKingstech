@@ -32,7 +32,7 @@ export function TapEarnButton({ productId, title, category, variant = "inline", 
 
   const share = async (name: string) => {
     const url = `${window.location.origin}/product/${productId}?ref=${encodeURIComponent(name)}`;
-    const text = `Check out this ${title} at ${business.name}, Circle Mall, Accra. Tell them ${name} sent you.`;
+    const text = `Check out this ${title} at ${business.name}, Tse Addo, Accra. Tell them ${name} sent you.`;
     try {
       if (navigator.share && window.matchMedia("(pointer: coarse)").matches) {
         await navigator.share({ title, text, url });
