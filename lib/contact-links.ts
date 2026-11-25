@@ -84,7 +84,7 @@ export function whatsappHref(
   return number ? `https://wa.me/${number}?text=${text}` : `https://wa.me/?text=${text}`;
 }
 
-/** e.g. "054 260 9094 / 020 665 1139" */
+/** e.g. "054 260 9094 / 020 293 3683" */
 export const whatsappNumbersDisplay = contact.whatsapp.map((w) => w.display).join(" / ");
 
 /* -------------------------------------------------------------------------- */

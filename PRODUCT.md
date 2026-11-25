@@ -25,7 +25,7 @@ A real shop with two branches in Accra: Circle Mall, Tip Toe Lane (Blue Gate, Ga
 ## Operating Context
 
 - Visitors arrive from flyers, WhatsApp shares and search, mostly on phones in daylight.
-- Conversations and deals happen on WhatsApp (054 260 9094 or 020 665 1139), by phone or by email (Waterkingstech@gmail.com).
+- Conversations and deals happen on WhatsApp (054 260 9094 or 020 293 3683), by phone or by email (Waterkingstech@gmail.com).
 - Corporate requests become a formal PDF quotation and an official invoice, prepared by the shop off-site.
 
 ## Capabilities and Constraints

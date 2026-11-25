@@ -16,7 +16,8 @@ export const contact = {
    */
   whatsapp: [
     { number: "233542609094", display: "054 260 9094" },
-    { number: "233206651139", display: "020 665 1139" },
+    // Replaced 020 665 1139 on 25 November 2026 (site owner).
+    { number: "233202933683", display: "020 293 3683" },
   ] as WhatsAppNumber[],
 
   /** Supplied by WaterKingsTech on 9 November 2026. Corporate quote requests also go here. */
