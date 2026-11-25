@@ -6,17 +6,18 @@ import { SwapForm } from "@/components/swap/SwapForm";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Pending } from "@/components/ui/Pending";
 import { swap } from "@/data/offers";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Swap your phone or laptop — trade in & upgrade",
+export const metadata: Metadata = pageMetadata({
+  title: "Swap or Trade In Your Phone or Laptop in Accra",
   description:
-    "Swap your old phone or laptop at WaterKingsTech, Tse Addo, Accra. Tell us what you have and what you want, and we'll tell you what to add.",
-  alternates: { canonical: "/swap" },
-};
+    "Trade in your old phone or laptop for a UK used or brand new one at WaterKingsTech, Circle & Tse Addo, Accra. Tell us what you have and we'll tell you what to add.",
+  path: "/swap",
+});
 
 const steps = [
   { title: "Tell us what you have", body: "Your device, its condition and what you'd like in exchange." },
-  { title: "Bring it to the shop", body: "We check your device at the shop on Rosewood Street, Tse Addo." },
+  { title: "Bring it to the shop", body: "We check your device at either shop — Circle Mall or Rosewood Street, Tse Addo." },
   { title: "Get its swap value", body: "We tell you what it's worth towards your next device." },
   { title: "Add the difference", body: "Pay the balance — negotiable — and leave with your upgrade." },
 ];
@@ -28,7 +29,7 @@ export default function SwapPage() {
 
       <div className="mt-4">
         <PortalBanner
-          title="Swap & upgrade"
+          title="Swap your phone or laptop"
           lead="Trade in your old phone or laptop towards a UK used or brand new one. Prices are negotiable, so there's always room to agree."
           icon={ArrowLeftRight}
           points={["Phones & laptops", "Swap for UK used or brand new", "Checked at the shop"]}

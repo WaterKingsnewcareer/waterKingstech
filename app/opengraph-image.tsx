@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { business } from "@/data/business";
 
-export const alt = `${business.name} — Phones, Laptops, Accessories & Repairs in Tse Addo, Accra`;
+export const alt = `${business.name} — Phones, Laptops, Accessories & Repairs in Circle & Tse Addo, Accra`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -71,7 +71,7 @@ export default async function OpengraphImage() {
               fontWeight: 800,
             }}
           >
-            Rosewood Street, Tse Addo, Accra — open 24/7
+            Circle Mall & Rosewood St, Tse Addo — open 24/7
           </div>
         </div>
       </div>

@@ -24,15 +24,16 @@ export function SearchBand() {
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-linear-to-br from-royal-800/95 via-royal-600/90 to-royal-500/85" />
 
       <div className="container-x relative pt-9 pb-20 text-center sm:pt-14 sm:pb-28">
+        {/* The prompt is the big line; the H1 is the sentence that says what the site is. */}
+        <p className="rise-in font-display text-[1.75rem] leading-tight font-extrabold tracking-[-0.02em] [--i:0] sm:text-4xl lg:text-[2.6rem]">
+          What are you looking for?
+        </p>
         <h1
           id="search-title"
-          className="rise-in font-display text-[1.75rem] leading-tight font-extrabold tracking-[-0.02em] [--i:0] sm:text-4xl lg:text-[2.6rem]"
+          className="rise-in mx-auto mt-2 max-w-xl text-balance text-[0.95rem] font-normal text-white/85 [--i:1] sm:text-base"
         >
-          What are you looking for?
+          UK used &amp; brand new phones, laptops and accessories — plus repairs, in Circle &amp; Tse Addo, Accra.
         </h1>
-        <p className="rise-in mx-auto mt-2 max-w-xl text-balance text-[0.95rem] text-white/85 [--i:1] sm:text-base">
-          UK used &amp; brand new phones, laptops and accessories — plus repairs, in Tse Addo, Accra.
-        </p>
 
         <div className="rise-in mx-auto mt-6 max-w-3xl [--i:2] sm:mt-8">
           <SearchBox variant="hero" />

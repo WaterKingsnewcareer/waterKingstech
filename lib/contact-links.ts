@@ -2,7 +2,7 @@ import { business } from "@/data/business";
 import { contact } from "@/data/contact";
 import { conditionLabel } from "@/data/offers";
 import { inSentence } from "@/lib/format";
-import type { Product, RepairService } from "@/types";
+import type { Branch, Product, RepairService } from "@/types";
 
 /* -------------------------------------------------------------------------- */
 /*  WhatsApp                                                                  */
@@ -110,15 +110,18 @@ export const callHref = contact.phone ? `tel:${contact.phone.replace(/\s+/g, "")
 
 export const hasPhone = Boolean(contact.phone);
 
-/** Google Maps directions to the shop: exact pin if supplied, otherwise the shop's address. */
-export const directionsHref = (() => {
-  const { coordinates, mapsUrl, mapQuery } = business.location;
+/** Google Maps directions to a branch: exact pin if supplied, otherwise its address. */
+export function directionsHrefFor(branch: Branch): string {
+  const { coordinates, mapsUrl, mapQuery } = branch;
   if (coordinates) {
     return `https://www.google.com/maps/dir/?api=1&destination=${coordinates.lat},${coordinates.lng}`;
   }
   if (mapsUrl) return mapsUrl;
   return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapQuery)}`;
-})();
+}
+
+/** With two branches, general "Directions" buttons open the branch list so visitors pick one. */
+export const directionsHref = business.branches.length === 1 ? directionsHrefFor(business.branches[0]) : "/visit#branches";
 
 /* -------------------------------------------------------------------------- */
 /*  Shared                                                                    */

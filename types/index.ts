@@ -41,6 +41,8 @@ export type Category = {
   /** Short name used in the header and on the category rail */
   shortLabel: string;
   description: string;
+  /** Search result title and description for the category page */
+  seo: { title: string; description: string };
   image: ImageAsset;
   subcategories: Subcategory[];
 };
@@ -125,6 +127,8 @@ export type Testimonial = {
   id: string;
   /** As the customer agreed to be shown, e.g. "Kofi A." */
   name: string;
+  /** Job title and organisation, e.g. "Student, Palm University College" */
+  role?: string;
   /** What they bought or had fixed, e.g. "Bought an iPhone 15 Pro" or "Laptop screen repair" */
   context?: string;
   quote: string;
@@ -147,6 +151,29 @@ export type Testimonial = {
 };
 
 /* ------------------------------ Business details ---------------------------- */
+
+/** One of the shop's branches. */
+export type Branch = {
+  id: string;
+  /** Short name, e.g. "Circle branch" */
+  name: string;
+  /** Neighbourhood used in copy, e.g. "Circle" or "Tse Addo" */
+  area: string;
+  /** Street address, e.g. "Circle Mall, Tip Toe Lane" */
+  address: string;
+  /** How to find it, e.g. "Blue Gate, Gate 2 Exit" */
+  landmark: string;
+  city: string;
+  region: string;
+  /** Used for the embedded map and directions until an exact pin is supplied. */
+  mapQuery: string;
+  /** Exact shop coordinates (Google Maps → right-click the pin). Overrides mapQuery. */
+  coordinates: { lat: number; lng: number } | null;
+  /** Google Maps "Embed a map" iframe src for the branch's own listing. Overrides mapQuery. */
+  mapEmbedUrl: string | null;
+  /** The branch's own Google Maps share link, once it has a public listing. */
+  mapsUrl: string | null;
+};
 
 export type OpeningHours = {
   /** e.g. "Monday – Friday" */

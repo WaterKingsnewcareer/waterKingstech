@@ -1,19 +1,24 @@
+import type { Metadata } from "next";
 import { BundleBanners } from "@/components/home/BundleBanners";
 import { CategoryRail } from "@/components/home/CategoryRail";
 import { QuickTiles } from "@/components/home/QuickTiles";
 import { SearchBand } from "@/components/home/SearchBand";
 import { ProductGrid } from "@/components/products/ProductGrid";
 import { CorporateBand } from "@/components/sections/CorporateBand";
+import { FaqList } from "@/components/sections/Faq";
 import { PortalCards } from "@/components/sections/PortalCards";
 import { InstallmentPanel, ReferralPanel } from "@/components/sections/Programs";
 import { RepairList } from "@/components/sections/RepairList";
 import { Reviews } from "@/components/sections/Reviews";
 import { VisitShop } from "@/components/sections/VisitShop";
-import { Pending } from "@/components/ui/Pending";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { catalogIsSample, products } from "@/data/products";
+import { faqs } from "@/data/faq";
+import { products } from "@/data/products";
 import { testimonials } from "@/data/testimonials";
 import { applyFilters, emptyFilters } from "@/lib/catalog";
+import { homeDescription, homeTitle, pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({ title: homeTitle, description: homeDescription, path: "/", absoluteTitle: true });
 
 /** Retail (B2C) home: search band, category rail, bundles and trending deals. */
 export default function HomePage() {
@@ -40,11 +45,6 @@ export default function HomePage() {
                 description="Top picks and today's offers — tap Buy on WhatsApp to check availability."
                 action={{ href: "/deals", label: "See all deals" }}
               />
-              {catalogIsSample ? (
-                <p className="mt-2">
-                  <Pending>Sample listings — real stock &amp; prices to be supplied</Pending>
-                </p>
-              ) : null}
               <ProductGrid products={trending} className="mt-4" />
             </section>
           </div>
@@ -72,8 +72,8 @@ export default function HomePage() {
         <section aria-labelledby="visit-title" className="mt-12">
           <SectionHeader
             id="visit-title"
-            title="Visit the shop"
-            description="See and test devices in person on Rosewood Street, Tse Addo — beside Swift FX."
+            title="Visit our shops"
+            description="See and test devices in person at Circle Mall, Tip Toe Lane or Rosewood Street, Tse Addo."
             action={{ href: "/visit", label: "Shop details" }}
           />
           <VisitShop className="mt-4" />
@@ -82,10 +82,19 @@ export default function HomePage() {
         <section aria-labelledby="reviews-title" className="mt-12">
           <SectionHeader
             id="reviews-title"
-            title="Verified customer reviews"
+            title="What our customers say"
             action={testimonials.length > 3 ? { href: "/visit#reviews", label: "All reviews" } : undefined}
           />
           <Reviews className="mt-4" />
+        </section>
+
+        <section aria-labelledby="faq-title" className="mt-12">
+          <SectionHeader
+            id="faq-title"
+            title="Questions customers ask"
+            description="Opening hours, installment, repairs, swaps and how to buy."
+          />
+          <FaqList faqs={faqs} className="mt-4" />
         </section>
       </div>
     </>

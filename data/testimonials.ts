@@ -26,7 +26,28 @@ import type { Testimonial } from "@/types";
  *   "google"         – posted on the shop's Google profile; add `url` to the review
  * That is what the green "Verified buyer" badge promises visitors.
  */
-export const testimonials: Testimonial[] = [];
+export const testimonials: Testimonial[] = [
+  // Supplied by the site owner on 25 November 2026, with the customers' photos.
+  // Not yet matched to an order or receipt, so they show without the Verified buyer badge.
+  {
+    id: "bright-anyawe-laptops-chargers",
+    name: "Bright Anyawe",
+    role: "Founder, Optisware Digital Solutions",
+    context: "Laptops and chargers",
+    quote:
+      "WaterKingsTech has been my trusted source for high-quality laptops and affordable chargers for both my own work and my clients. Their reliable hardware, fair pricing, and dependable customer support consistently deliver real value, making it easy to equip individuals and businesses with machines they can count on. I strongly recommend WaterKingsTech to anyone looking for quality laptops and accessories.",
+    photo: { src: "/images/reviews/bright-anyawe.jpg", alt: "Bright Anyawe" },
+  },
+  {
+    id: "elijah-ansokuu-laptop",
+    name: "Elijah Ngmenkpieo Ansokuu",
+    role: "Student, Palm University College",
+    context: "Bought a laptop",
+    quote:
+      "The laptop is performing very well so far, and we have not encountered any challenges—I hope it is going to take us far. The battery life, storage, and speed make it so good to use. It has met all my expectations because, as a student, I am able to use it efficiently to achieve all my goals. It has been a great tool so far, and the buying process was very smooth with no challenges at all. I recommend anyone looking to purchase a laptop to contact WaterKingsTech to have their needs met.",
+    photo: { src: "/images/reviews/elijah-ansokuu.jpg", alt: "Elijah Ngmenkpieo Ansokuu" },
+  },
+];
 
 /**
  * Links to the shop's Google Business profile, once it has one.

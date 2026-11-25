@@ -4,13 +4,14 @@ import Link from "next/link";
 import { PortalBanner } from "@/components/sections/PortalBanner";
 import { InstallmentPanel, ReferralPanel } from "@/components/sections/Programs";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Installment plans & referral commission",
+export const metadata: Metadata = pageMetadata({
+  title: "Phones, MacBooks & iPads on Installment in Accra",
   description:
-    "Buy any phone, a MacBook or an iPad on installment, or earn GH₵ 50 – GH₵ 400 commission for every buyer you refer to WaterKingsTech.",
-  alternates: { canonical: "/referral-installment" },
-};
+    "Buy any phone (UK used or brand new), a MacBook or an iPad on installment at WaterKingsTech in Circle & Tse Addo — or earn GH₵ 50 – GH₵ 400 for every buyer you refer.",
+  path: "/referral-installment",
+});
 
 export default function ReferralInstallmentPage() {
   return (
@@ -19,7 +20,7 @@ export default function ReferralInstallmentPage() {
 
       <div className="mt-4">
         <PortalBanner
-          title="Referral & installment hub"
+          title="Installment plans & referral rewards"
           lead="Two ways to win: get your device now and pay over time, or earn cash for every buyer you send our way."
           icon={Coins}
         >

@@ -4,13 +4,14 @@ import { Listing } from "@/components/products/Listing";
 import { PortalBanner } from "@/components/sections/PortalBanner";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { products } from "@/data/products";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Brand new phones & laptops — fresh in box",
+export const metadata: Metadata = pageMetadata({
+  title: "Brand New, Sealed Phones & Laptops in Accra",
   description:
-    "Factory-sealed smartphones, laptops and accessories at WaterKingsTech, Tse Addo, Accra. Free case + screen protector with phones, free bag with laptops.",
-  alternates: { canonical: "/brand-new" },
-};
+    "Factory-sealed smartphones, laptops and accessories at WaterKingsTech, Circle & Tse Addo, Accra. Free case and screen protector with phones, free bag with laptops.",
+  path: "/brand-new",
+});
 
 export default function BrandNewPage() {
   return (
@@ -19,7 +20,7 @@ export default function BrandNewPage() {
       <div className="mt-4">
         <PortalBanner
           tone="white"
-          title="Brand New"
+          title="Brand new phones & laptops"
           lead="Fresh in box: factory-sealed laptops and smartphones for buyers who want it brand new."
           icon={PackageCheck}
           badge={

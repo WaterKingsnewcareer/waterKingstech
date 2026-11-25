@@ -11,7 +11,6 @@ import { TapEarnButton } from "@/components/referral/TapEarnButton";
 import { WhatsAppBuyLink } from "@/components/referral/WhatsAppBuyLink";
 import { ButtonLink } from "@/components/ui/Button";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Pending } from "@/components/ui/Pending";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { business } from "@/data/business";
@@ -19,8 +18,9 @@ import { getCategory, getSubcategoryLabel } from "@/data/categories";
 import { conditionLabel, giftByCategory, isNegotiable, isSwappable, warrantyFor, warrantyPending } from "@/data/offers";
 import { catalogIsSample, getProduct, products } from "@/data/products";
 import { isInstallmentEligible } from "@/data/programs";
-import { callHref, directionsHref, emailHref, productMessage, productTitle, whatsappHref, whatsappMessages } from "@/lib/contact-links";
-import { inSentence } from "@/lib/format";
+import { callHref, directionsHref, directionsHrefFor, emailHref, productMessage, productTitle, whatsappHref, whatsappMessages } from "@/lib/contact-links";
+import { pageMetadata } from "@/lib/seo";
+import { jsonLdScriptProps, productJsonLd } from "@/lib/structured-data";
 
 export const dynamicParams = false;
 
@@ -33,12 +33,14 @@ export async function generateMetadata({ params }: PageProps<"/product/[id]">): 
   const product = getProduct(id);
   if (!product) return {};
   const title = `${productTitle(product)} (${conditionLabel[product.condition]})`;
-  return {
-    title,
-    description: `${title} at ${business.name}, Tse Addo, Accra. ${product.specs.join(", ")}. Buy on WhatsApp.`,
-    alternates: { canonical: `/product/${product.id}` },
-    openGraph: { images: [{ url: product.image.src, alt: product.image.alt }] },
-  };
+  return pageMetadata({
+    title: `${title} in Accra`,
+    description: `${title} at ${business.name}, ${business.areas}, Accra. ${product.specs.join(", ")}. Ask the price and buy on WhatsApp.`,
+    path: `/product/${product.id}`,
+    image: { url: product.image.src, alt: product.image.alt },
+    // Sample listings (placeholder stock and prices) stay out of search results.
+    noindex: catalogIsSample,
+  });
 }
 
 export default async function ProductPage({ params }: PageProps<"/product/[id]">) {
@@ -66,6 +68,7 @@ export default async function ProductPage({ params }: PageProps<"/product/[id]">
 
   return (
     <div className="container-x pt-4 sm:pt-6">
+      {catalogIsSample ? null : <script {...jsonLdScriptProps(productJsonLd(product, title))} />}
       <Breadcrumbs
         items={[
           { label: "Home", href: "/" },
@@ -109,11 +112,6 @@ export default async function ProductPage({ params }: PageProps<"/product/[id]">
                 </li>
               ))}
             </ul>
-            {catalogIsSample ? (
-              <p className="mt-5">
-                <Pending>Sample listing — real stock, price &amp; photos to be supplied</Pending>
-              </p>
-            ) : null}
           </section>
         </div>
 
@@ -122,9 +120,9 @@ export default async function ProductPage({ params }: PageProps<"/product/[id]">
             {product.price !== null ? <Price product={product} size="lg" /> : null}
             <h1 className="font-display text-xl leading-snug font-bold text-ink sm:text-2xl">{title}</h1>
             {product.price === null ? <Price product={product} size="lg" /> : null}
-            <p className="mt-2 flex items-center gap-1 text-sm text-ink-muted">
-              <MapPin className="size-4" aria-hidden="true" />
-              {business.location.address} · {business.location.landmark}
+            <p className="mt-2 flex items-start gap-1 text-sm text-ink-muted">
+              <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+              {business.branches.map((branch) => branch.address).join(" · ")}
             </p>
             <div className="mt-3 flex flex-wrap gap-1.5">
               <ConditionChip product={product} />
@@ -183,11 +181,22 @@ export default async function ProductPage({ params }: PageProps<"/product/[id]">
               <li className="flex gap-2.5">
                 <MapPin className="mt-0.5 size-4 shrink-0 text-royal-600" aria-hidden="true" />
                 <span>
-                  See and test it at the shop —{" "}
-                  <a href={directionsHref} target="_blank" rel="noopener noreferrer" className="font-semibold text-royal-700 hover:underline">
-                    {business.location.address}
-                  </a>
-                  , {inSentence(business.location.landmark)}.
+                  See and test it at either shop:{" "}
+                  {business.branches.map((branch, index) => (
+                    <span key={branch.id}>
+                      {index > 0 ? " or " : null}
+                      <a
+                        href={directionsHrefFor(branch)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-royal-700 hover:underline"
+                      >
+                        {branch.address}
+                      </a>{" "}
+                      ({branch.landmark})
+                    </span>
+                  ))}
+                  .
                 </span>
               </li>
               <li className="flex gap-2.5">

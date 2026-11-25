@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ButtonLink } from "@/components/ui/Button";
-import { Pending } from "@/components/ui/Pending";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { business } from "@/data/business";
 import { warranty } from "@/data/offers";
@@ -43,28 +42,38 @@ function ReviewList({ className }: { className?: string }) {
   // Verified reviews lead; unverified ones (if any) follow without the badge.
   const ordered = [...testimonials].sort((a, b) => Number(Boolean(b.verification)) - Number(Boolean(a.verification)));
 
+  // The summary bar only appears once there is something verified to summarise.
+  const hasSummary = Boolean(rating) || verifiedReviews.length > 0;
+
   return (
     <div className={className}>
-      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 rounded-xl border border-ice-200 bg-white px-4 py-3">
-        {rating ? (
-          <p className="flex items-center gap-2">
-            <Stars value={rating.average} />
-            <span className="font-display text-lg font-extrabold text-ink tabular-nums">{rating.average.toFixed(1)}</span>
-            <span className="text-[0.8rem] text-ink-muted">
-              from {rating.count} verified {rating.count === 1 ? "rating" : "ratings"}
-            </span>
-          </p>
-        ) : null}
-        {verifiedReviews.length > 0 ? (
-          <p className="flex items-center gap-1.5 text-[0.85rem] font-semibold text-gift">
-            <BadgeCheck className="size-4" aria-hidden="true" />
-            {verifiedReviews.length} verified {verifiedReviews.length === 1 ? "review" : "reviews"}
-          </p>
-        ) : null}
-        <HowWeVerify className="sm:ml-auto" />
-      </div>
+      {hasSummary ? (
+        <div className="mb-3 flex flex-wrap items-center gap-x-5 gap-y-2 rounded-xl border border-ice-200 bg-white px-4 py-3">
+          {rating ? (
+            <p className="flex items-center gap-2">
+              <Stars value={rating.average} />
+              <span className="font-display text-lg font-extrabold text-ink tabular-nums">{rating.average.toFixed(1)}</span>
+              <span className="text-[0.8rem] text-ink-muted">
+                from {rating.count} verified {rating.count === 1 ? "rating" : "ratings"}
+              </span>
+            </p>
+          ) : null}
+          {verifiedReviews.length > 0 ? (
+            <p className="flex items-center gap-1.5 text-[0.85rem] font-semibold text-gift">
+              <BadgeCheck className="size-4" aria-hidden="true" />
+              {verifiedReviews.length} verified {verifiedReviews.length === 1 ? "review" : "reviews"}
+            </p>
+          ) : null}
+          <HowWeVerify className="sm:ml-auto" />
+        </div>
+      ) : null}
 
-      <ul className="no-scrollbar -mx-4 mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
+      <ul
+        className={cn(
+          "no-scrollbar -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0",
+          ordered.length > 2 && "lg:grid-cols-3",
+        )}
+      >
         {ordered.map((testimonial) => (
           <li key={testimonial.id} className="w-[84%] shrink-0 snap-start sm:w-auto">
             <ReviewCard testimonial={testimonial} />
@@ -72,13 +81,14 @@ function ReviewList({ className }: { className?: string }) {
         ))}
       </ul>
 
-      <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+      <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
         <LeaveReviewButton />
         {reviewLinks.read ? (
           <ButtonLink href={reviewLinks.read} variant="outline" trailingIcon={<ExternalLink />}>
             Read all reviews on Google
           </ButtonLink>
         ) : null}
+        {!hasSummary ? <HowWeVerify className="sm:ml-3" /> : null}
       </div>
     </div>
   );
@@ -109,18 +119,19 @@ function ReviewCard({ testimonial }: { testimonial: Testimonial }) {
             <Image
               src={testimonial.photo.src}
               alt={testimonial.photo.alt}
-              width={40}
-              height={40}
-              className="size-10 shrink-0 rounded-full object-cover"
+              width={48}
+              height={48}
+              className="size-12 shrink-0 rounded-full object-cover shadow-[0_3px_10px_-4px_rgb(6_42_92/0.45)] ring-2 ring-white"
             />
           ) : (
-            <span aria-hidden="true" className="flex size-10 shrink-0 items-center justify-center rounded-full bg-royal-50 font-bold text-royal-600">
+            <span aria-hidden="true" className="flex size-12 shrink-0 items-center justify-center rounded-full bg-royal-50 font-bold text-royal-600">
               {testimonial.name.charAt(0)}
             </span>
           )}
           <span className="min-w-0 leading-tight">
             <span className="block font-semibold text-ink">{testimonial.name}</span>
-            {meta ? <span className="mt-0.5 block text-[0.8rem] text-ink-muted">{meta}</span> : null}
+            {testimonial.role ? <span className="mt-0.5 block text-[0.8rem] text-ink-soft">{testimonial.role}</span> : null}
+            {meta ? <span className="mt-0.5 block text-[0.78rem] text-ink-muted">{meta}</span> : null}
           </span>
         </div>
 
@@ -150,8 +161,6 @@ function ReviewCard({ testimonial }: { testimonial: Testimonial }) {
 /* ------------------------------- Empty state ------------------------------- */
 
 function NoReviewsYet({ className }: { className?: string }) {
-  const { address, landmark } = business.location;
-
   return (
     <div className={cn("overflow-hidden rounded-xl border border-ice-200 bg-white", className)}>
       <div className="grid lg:grid-cols-[1.4fr_1fr]">
@@ -165,9 +174,6 @@ function NoReviewsYet({ className }: { className?: string }) {
           <p className="mt-2 max-w-xl text-[0.95rem] leading-relaxed text-pretty text-ink-soft">
             Before a review goes up, we match it to the buyer&apos;s WhatsApp order or shop receipt. You&apos;ll only ever
             read what real customers said — never a review written by us.
-          </p>
-          <p className="mt-3">
-            <Pending>First customer reviews to be added</Pending>
           </p>
           <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
             <LeaveReviewButton />
@@ -183,11 +189,10 @@ function NoReviewsYet({ className }: { className?: string }) {
           <h3 className="text-sm font-semibold text-ink">Check us out before you buy</h3>
           <ul className="mt-4 flex flex-col gap-4">
             <TrustPoint icon={<Store className="size-4" />}>
-              See the device in person at{" "}
-              <Link href="/visit" className="font-semibold text-royal-700 underline-offset-2 hover:underline">
-                {address ?? landmark}
+              See the device in person at our shops in{" "}
+              <Link href="/visit#branches" className="font-semibold text-royal-700 underline-offset-2 hover:underline">
+                {business.areas}
               </Link>
-              {address ? ` — ${landmark}` : null}
             </TrustPoint>
             {warranty["uk-used"] ? (
               <TrustPoint icon={<ShieldCheck className="size-4" />}>

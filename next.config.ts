@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { productionUrl } from "./lib/site";
 
 const nextConfig: NextConfig = {
   images: {
@@ -12,6 +13,19 @@ const nextConfig: NextConfig = {
     ],
   },
   poweredByHeader: false,
+
+  async redirects() {
+    return [
+      // One address for search engines: the Vercel subdomain serves the same
+      // pages, so send it (and its link equity) to the real domain.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "waterkingstech.vercel.app" }],
+        destination: `${productionUrl}/:path*`,
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

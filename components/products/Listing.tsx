@@ -6,11 +6,9 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { ProductGrid } from "@/components/products/ProductGrid";
-import { Pending } from "@/components/ui/Pending";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { categories, getCategory, getSubcategoryLabel } from "@/data/categories";
 import { conditionLabel, warranty } from "@/data/offers";
-import { catalogIsSample } from "@/data/products";
 import {
   applyFilters,
   emptyFilters,
@@ -120,7 +118,7 @@ function ListingView({ title, products, fixed = {}, intro, titleAs: Title = "h1"
             <Title className="font-display text-2xl font-extrabold tracking-[-0.02em] text-ink sm:text-[1.75rem]">{title}</Title>
             <p aria-live="polite" className="mt-1 text-sm text-ink-muted">
               <span className="font-semibold text-ink">{itemCount(results.length)}</span>
-              {filters.q ? <> for “{filters.q}”</> : null} · Tse Addo, Accra
+              {filters.q ? <> for “{filters.q}”</> : null} · Circle & Tse Addo, Accra
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -175,7 +173,7 @@ function ListingView({ title, products, fixed = {}, intro, titleAs: Title = "h1"
           </div>
         ) : null}
 
-        {chips.length > 0 || catalogIsSample ? (
+        {chips.length > 0 ? (
           <div className="mt-3 flex flex-wrap items-center gap-2">
             {chips.map((chip) => (
               <button
@@ -189,7 +187,6 @@ function ListingView({ title, products, fixed = {}, intro, titleAs: Title = "h1"
                 <span className="sr-only">Remove filter</span>
               </button>
             ))}
-            {catalogIsSample ? <Pending>Sample listings — real stock &amp; prices to be supplied</Pending> : null}
           </div>
         ) : null}
 

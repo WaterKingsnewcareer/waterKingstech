@@ -6,27 +6,28 @@ import { VisitShop } from "@/components/sections/VisitShop";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { business } from "@/data/business";
-import { inSentence } from "@/lib/format";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Visit the shop — Rosewood Street, Tse Addo, Accra",
-  description:
-    "Find WaterKingsTech on Rosewood Street, Tse Addo, Accra — beside Swift FX. Open 24/7. Live map, directions, contact details and customer reviews.",
-  alternates: { canonical: "/visit" },
-};
+const branchList = business.branches.map((branch) => `${branch.address} (${branch.landmark})`).join(" and ");
+
+export const metadata: Metadata = pageMetadata({
+  title: `Phone & Laptop Shops in ${business.areas}, Accra — 24/7`,
+  description: `Visit WaterKingsTech at ${branchList}, Accra. Open 24 hours, every day. Get directions, call 054 260 9094 or chat on WhatsApp.`,
+  path: "/visit",
+});
 
 export default function VisitPage() {
   return (
     <div className="container-x pt-4 sm:pt-6">
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Visit the shop" }]} />
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Visit us" }]} />
 
       <div className="mt-4">
         <PortalBanner
           tone="white"
-          title="Visit the shop"
-          lead={`Come and see devices in person, get a repair checked or ask about installment. We're on ${business.location.address}, ${inSentence(business.location.landmark)}.`}
+          title={`Visit our shops in ${business.areas}`}
+          lead={`Two branches in Accra: ${branchList}. Come and see devices in person, get a repair checked or ask about installment.`}
           icon={MapPin}
-          points={["Open 24/7", "Live Google map", "See & test devices", "Repairs on site"]}
+          points={[`${business.branches.length} branches`, "Open 24/7", "Live Google maps", "Repairs on site"]}
         />
       </div>
 
@@ -35,7 +36,7 @@ export default function VisitPage() {
       <section id="reviews" aria-labelledby="reviews-title" className="mt-10 scroll-mt-32">
         <SectionHeader
           id="reviews-title"
-          title="Verified customer reviews"
+          title="What our customers say"
           description="Bought a device or had a repair with us? We'd love to hear about it."
         />
         <Reviews className="mt-4" />

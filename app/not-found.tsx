@@ -1,7 +1,13 @@
 import { ArrowLeft, Search } from "lucide-react";
+import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { whatsappHref } from "@/lib/contact-links";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (

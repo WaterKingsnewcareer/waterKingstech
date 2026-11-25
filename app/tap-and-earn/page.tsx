@@ -7,13 +7,14 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { referral } from "@/data/programs";
 import { formatPrice } from "@/lib/format";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Tap & Earn — share an item, earn GH₵ 50 – GH₵ 400",
+export const metadata: Metadata = pageMetadata({
+  title: "Tap & Earn — Earn GH₵ 50 – GH₵ 400 per Referral",
   description:
-    "Tap & Earn with WaterKingsTech: share any phone, laptop or accessory on WhatsApp. When your friend buys, you earn a commission of GH₵ 50 – GH₵ 400.",
-  alternates: { canonical: "/tap-and-earn" },
-};
+    "Share any phone, laptop or accessory from WaterKingsTech on WhatsApp. When your friend buys, you earn a commission of GH₵ 50 – GH₵ 400.",
+  path: "/tap-and-earn",
+});
 
 const steps = [
   { title: "Tap “Tap & Earn”", body: "It's on every item in the shop — phones, laptops and accessories." },

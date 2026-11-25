@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { categories, getCategoryBySlug } from "@/data/categories";
 import { giftByCategory } from "@/data/offers";
 import { products } from "@/data/products";
+import { pageMetadata } from "@/lib/seo";
 import { GiftBar } from "@/components/sections/GiftBar";
 
 export const dynamicParams = false;
@@ -17,11 +18,7 @@ export async function generateMetadata({ params }: PageProps<"/shop/[category]">
   const { category: slug } = await params;
   const category = getCategoryBySlug(slug);
   if (!category) return {};
-  return {
-    title: `${category.label} in Accra — UK used & brand new`,
-    description: `${category.description} Shop at WaterKingsTech, Tse Addo, Accra, and buy on WhatsApp.`,
-    alternates: { canonical: `/shop/${category.slug}` },
-  };
+  return pageMetadata({ ...category.seo, path: `/shop/${category.slug}` });
 }
 
 export default async function CategoryPage({ params }: PageProps<"/shop/[category]">) {

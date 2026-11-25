@@ -8,12 +8,12 @@ import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { business } from "@/data/business";
 import { categories } from "@/data/categories";
 import { contact } from "@/data/contact";
-import { callHref, directionsHref, emailHref, whatsappHref, whatsappMessages } from "@/lib/contact-links";
+import { callHref, directionsHrefFor, emailHref, whatsappHref, whatsappMessages } from "@/lib/contact-links";
 
 const linkClass = "text-sm text-ink-soft transition-colors hover:text-royal-700 hover:underline";
 
 export function Footer() {
-  const { location, openingHours } = business;
+  const { branches, openingHours } = business;
   const mail = emailHref();
 
   return (
@@ -85,13 +85,17 @@ export function Footer() {
           </FooterColumn>
 
           <FooterColumn title="Visit & contact" className="col-span-2 sm:col-span-1">
-            <ContactRow icon={<MapPin className="size-4" aria-hidden="true" />}>
-              <a href={directionsHref} target="_blank" rel="noopener noreferrer" className={linkClass}>
-                {location.address}
-                <span className="block">{location.landmark}</span>
-                {location.city ? <span className="block">{location.city}</span> : null}
-              </a>
-            </ContactRow>
+            {branches.map((branch) => (
+              <ContactRow key={branch.id} icon={<MapPin className="size-4" aria-hidden="true" />}>
+                <a href={directionsHrefFor(branch)} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                  <span className="block font-semibold text-ink">{branch.name}</span>
+                  {branch.address}
+                  <span className="block">
+                    {branch.landmark}, {branch.city}
+                  </span>
+                </a>
+              </ContactRow>
+            ))}
             <ContactRow icon={<Phone className="size-4" aria-hidden="true" />}>
               {contact.phoneDisplay ? (
                 <a href={callHref} className={linkClass}>

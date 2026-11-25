@@ -2,20 +2,21 @@ import type { Metadata } from "next";
 import { Listing } from "@/components/products/Listing";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { products } from "@/data/products";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Shop phones, laptops & accessories",
+export const metadata: Metadata = pageMetadata({
+  title: "Buy Phones, Laptops & Accessories in Accra",
   description:
-    "Browse UK used and brand new smartphones, laptops, MacBooks and accessories at WaterKingsTech, Tse Addo, Accra. Buy on WhatsApp.",
-  alternates: { canonical: "/shop" },
-};
+    "Browse UK used and brand new smartphones, laptops, MacBooks and accessories at WaterKingsTech in Circle & Tse Addo, Accra. Prices are negotiable — buy on WhatsApp.",
+  path: "/shop",
+});
 
 export default function ShopPage() {
   return (
     <div className="container-x pt-4 sm:pt-6">
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Shop" }]} />
       <div className="mt-4">
-        <Listing title="All products" products={products} />
+        <Listing title="All phones, laptops & accessories" products={products} />
       </div>
     </div>
   );

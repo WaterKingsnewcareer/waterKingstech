@@ -14,7 +14,7 @@ export const navItems: NavItem[] = [
   { label: "Repairs", href: "/repairs" },
   { label: "Installment", href: "/referral-installment" },
   { label: "Tap & Earn", href: "/tap-and-earn" },
-  { label: "Visit the shop", href: "/visit" },
+  { label: "Visit us", href: "/visit" },
 ];
 
 /** Retail (B2C) and Corporate (B2B) portals, shown as a switch in the header. */

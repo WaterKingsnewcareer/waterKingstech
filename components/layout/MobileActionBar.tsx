@@ -33,8 +33,7 @@ export function MobileActionBar() {
         <li>
           <a
             href={directionsHref}
-            target="_blank"
-            rel="noopener noreferrer"
+            {...(directionsHref.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             className="flex h-12 items-center justify-center gap-1.5 rounded-lg border border-ice-300 text-sm font-semibold text-ink transition-transform active:scale-[0.97]"
           >
             <MapPin className="size-4 text-royal-600" aria-hidden="true" />

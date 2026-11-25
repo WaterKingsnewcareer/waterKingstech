@@ -5,13 +5,14 @@ import { PortalBanner } from "@/components/sections/PortalBanner";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { warranty } from "@/data/offers";
 import { products } from "@/data/products";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "UK Used phones & laptops with warranty",
+export const metadata: Metadata = pageMetadata({
+  title: "UK Used iPhones, Laptops & MacBooks in Accra",
   description:
-    "Tested, high-grade UK used iPhones, Samsung phones, laptops and MacBooks with a 3-month warranty — at WaterKingsTech, Tse Addo, Accra. Phones and MacBooks on installment.",
-  alternates: { canonical: "/uk-used" },
-};
+    "Tested, graded UK used iPhones, Samsung phones, laptops and MacBooks with a 3-month warranty in Circle & Tse Addo, Accra. Phones and MacBooks on installment.",
+  path: "/uk-used",
+});
 
 export default function UkUsedPage() {
   return (
@@ -19,7 +20,7 @@ export default function UkUsedPage() {
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "UK Used" }]} />
       <div className="mt-4">
         <PortalBanner
-          title="UK Used"
+          title="UK used phones & laptops"
           lead="High-grade imported phones and laptops, tested before sale and backed by a warranty."
           icon={ShieldCheck}
           badge={

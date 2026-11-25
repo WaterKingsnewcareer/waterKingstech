@@ -1,11 +1,16 @@
 import Link from "next/link";
+import { breadcrumbJsonLd, jsonLdScriptProps } from "@/lib/structured-data";
 
 export type Crumb = { label: string; href?: string };
 
-/** Pill breadcrumbs, as on marketplace listing pages. The last crumb is the current page. */
+/**
+ * Pill breadcrumbs, as on marketplace listing pages. The last crumb is the
+ * current page. Also gives search engines the same trail as BreadcrumbList data.
+ */
 export function Breadcrumbs({ items }: { items: Crumb[] }) {
   return (
     <nav aria-label="Breadcrumb" className="no-scrollbar -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+      <script {...jsonLdScriptProps(breadcrumbJsonLd(items))} />
       <ol className="flex w-max items-center gap-1.5 text-[0.8rem]">
         {items.map((item, index) => {
           const last = index === items.length - 1;

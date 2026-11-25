@@ -10,13 +10,14 @@ import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { contact } from "@/data/contact";
 import { corporate } from "@/data/corporate";
 import { callHref, emailHref, whatsappHref, whatsappMessages } from "@/lib/contact-links";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Corporate & bulk orders — companies, schools, NGOs",
+export const metadata: Metadata = pageMetadata({
+  title: "Bulk Laptops & Phones for Businesses in Ghana",
   description:
-    "Bulk laptops, phones and accessories for companies, schools and NGOs in Ghana. Formal PDF quotations, official invoicing and long-term repair retainers from WaterKingsTech.",
-  alternates: { canonical: "/corporate" },
-};
+    "Bulk laptops, phones and accessories for companies, schools and NGOs in Ghana — formal PDF quotations, official invoicing and repair support.",
+  path: "/corporate",
+});
 
 export default function CorporatePage() {
   const mail = emailHref("Corporate quotation request");
@@ -28,7 +29,7 @@ export default function CorporatePage() {
       <div className="mt-4">
         <PortalBanner
           tone="navy"
-          title="Corporate portal"
+          title="Corporate & bulk orders"
           lead="Bulk laptops, phones and accessories for your organisation — with a formal PDF quotation, official invoicing and long-term repair support."
           icon={Building2}
           badge={

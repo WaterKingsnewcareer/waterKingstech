@@ -3,13 +3,14 @@ import { BundleBanners } from "@/components/home/BundleBanners";
 import { Listing } from "@/components/products/Listing";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { products } from "@/data/products";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Hot deals — save up to 40% on laptops",
+export const metadata: Metadata = pageMetadata({
+  title: "Laptop & Phone Deals in Accra — Save up to 40%",
   description:
-    "WaterKingsTech deals: buy a laptop and save up to 40% plus a free laptop bag, or buy a phone and get a free case and screen protector. Tse Addo, Accra.",
-  alternates: { canonical: "/deals" },
-};
+    "Buy a laptop and save up to 40% plus a free laptop bag, or get a free case and screen protector with a phone. WaterKingsTech deals in Circle & Tse Addo, Accra.",
+  path: "/deals",
+});
 
 export default function DealsPage() {
   return (

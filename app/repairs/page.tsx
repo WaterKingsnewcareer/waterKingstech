@@ -6,19 +6,21 @@ import { RepairList } from "@/components/sections/RepairList";
 import { ButtonLink } from "@/components/ui/Button";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
-import { repairImage } from "@/data/repairs";
+import { repairImage, repairServices } from "@/data/repairs";
 import { callHref, whatsappHref, whatsappMessages } from "@/lib/contact-links";
+import { pageMetadata } from "@/lib/seo";
+import { jsonLdScriptProps, repairServicesJsonLd } from "@/lib/structured-data";
 
-export const metadata: Metadata = {
-  title: "Phone & laptop repairs in Accra",
+export const metadata: Metadata = pageMetadata({
+  title: "Phone & Laptop Repair in Accra — Open 24/7",
   description:
-    "Screen replacement, battery swap, SSD / HDD and RAM upgrades, board repair and diagnostics for phones and laptops at WaterKingsTech, Tse Addo, Accra.",
-  alternates: { canonical: "/repairs" },
-};
+    "Screen replacement, battery swaps, SSD / HDD and RAM upgrades, board repair and diagnostics for phones and laptops at WaterKingsTech, Circle & Tse Addo, Accra.",
+  path: "/repairs",
+});
 
 const steps = [
   { title: "Tell us the problem", body: "Describe what's wrong on WhatsApp, or call the shop." },
-  { title: "Bring your device", body: "Come to Rosewood Street, Tse Addo — beside Swift FX." },
+  { title: "Bring your device", body: "Come to either shop: Circle Mall (Blue Gate, Gate 2 Exit) or Rosewood Street, Tse Addo." },
   { title: "Get the diagnosis", body: "We find the fault and advise you on the next step." },
   { title: "Collect it fixed", body: "Pick up your device once the repair is done." },
 ];
@@ -26,12 +28,13 @@ const steps = [
 export default function RepairsPage() {
   return (
     <div className="container-x pt-4 sm:pt-6">
+      <script {...jsonLdScriptProps(repairServicesJsonLd(repairServices))} />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Repairs" }]} />
 
       <div className="mt-4">
         <PortalBanner
           tone="navy"
-          title="Repair & diagnostic hub"
+          title="Phone & laptop repairs in Accra"
           lead="Cracked screen, weak battery, slow laptop or a deeper fault? Get your phone or laptop fixed at the shop."
           icon={Wrench}
           points={["Phones & laptops", "Screens & batteries", "SSD, HDD & RAM upgrades", "Board-level repair"]}
